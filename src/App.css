@@ -1,38 +1,25 @@
-.App {
-  text-align: center;
+button {
+  background-color: #4CAF50; /* Yeşil arka plan */
+  color: white; /* Yazı rengi beyaz */
+  font-size: 14px; /* Yazı büyüklüğü */
+  padding: 15px 32px; /* Dikey ve yatay padding (iç boşluk) */
+  border: none; /* Sınır yok */
+  border-radius: 8px; /* Yuvarlatılmış köşeler */
+  cursor: pointer; /* Fare imlecini gösterme */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Hover efekti için geçiş */
+  margin-left: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button:hover {
+  background-color: #45a049; /* Hover durumunda biraz daha koyu yeşil */
+  transform: scale(1.1); /* Butonu biraz büyütme */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:focus {
+  outline: none; /* Focus durumunda etrafında kenarlık görünmemesi için */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:active {
+  background-color: #388e3c; /* Tıklanırken arka plan rengi değişsin */
+  transform: scale(1); /* Tıklanırken büyütme etkisi yok */
 }

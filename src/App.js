@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [textContent, setTextContent] = useState('');
+
+  const fetchText = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/read-text');
+      const data = await response.json();
+      setTextContent(data.content); // Gelen "content" verisini state'e kaydet
+    } catch (error) {
+      console.error("Veri alınırken bir hata oluştu:", error);
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Metin Dosyasının İçeriğini Okuma</h1>
+      <button onClick={fetchText}>Metni Getir</button>
+      <p>{textContent}</p> {/* Metin içerik burada gösterilecek */}
     </div>
   );
 }
